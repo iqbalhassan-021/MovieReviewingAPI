@@ -33,22 +33,22 @@ namespace MovieReviewingAPI.Controllers
             .ToArray();
         }
 
-        [HttpGet("GetData")]
-        public IEnumerable<MovieData> GetData()
-        {
-          //  return _MovieData.MovieDatas;
-        }
-     /*   public string GetData(String MovieName, float RatingonIDM, string MovieDesc, AdminPage adminPage)
-        {
-            
-            return "Movie Name: "+ MovieName+" IMD Ratings: "+ RatingonIDM + " Descriprion: "+ MovieDesc;
-        }*/
+     
         [HttpPost("SaveData")]
         public void SaveData(AdminPage adminPage)
         {
             _MovieData.Add(adminPage);
             _MovieData.SaveChanges();
         }
-        
+        [HttpGet("GetData")]
+        public IEnumerable<AdminPage> GetData()
+        {
+            return _MovieData.MovieDatas;
+        }
+        /*   public string GetData(String MovieName, float RatingonIDM, string MovieDesc, AdminPage adminPage)
+           {
+
+               return "Movie Name: "+ MovieName+" IMD Ratings: "+ RatingonIDM + " Descriprion: "+ MovieDesc;
+           }*/
     }
 }
